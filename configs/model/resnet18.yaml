@@ -1,0 +1,6 @@
+defaults:
+  - _self_
+  - losses: BCEWithLogitsLoss  
+
+encoder: resnet18
+pretrained: True

@@ -1,0 +1,7 @@
+# dataset params
+num_samples: 10000
+image_size: 32
+max_size: 15
+
+# augmentation params
+p_rotation: 0.0             # probability of rotation image transform in the batch

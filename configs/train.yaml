@@ -1,0 +1,13 @@
+defaults:
+  - _self_
+  - data:  train                                                                    # data params
+  - model: resnet18                                                                 # model params
+  - hyp: default
+  - override hydra/job_logging: disabled
+
+hydra:
+  run:
+    dir: ../experiments_results/train/${hydra.job.config_name}/${now:%d-%m-%Y_%I-%M-%S}     # experiment logging folder
+  callbacks:
+    save_job_info:
+      _target_: hydra.experimental.callbacks.PickleJobInfoCallback

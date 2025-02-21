@@ -1,0 +1,4 @@
+optimizer_type: adam
+lr0: 0.001
+momentum: 0.937
+weight_decay: 5e-4

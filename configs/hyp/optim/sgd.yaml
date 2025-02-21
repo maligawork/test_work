@@ -1,0 +1,5 @@
+optimizer_type: sgd
+lr0: 0.001
+momentum: 0.937
+nesterov: True
+weight_decay: 5e-4

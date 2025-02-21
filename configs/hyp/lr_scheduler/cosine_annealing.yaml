@@ -1,0 +1,3 @@
+scheduler_type: 'cosine_annealing'
+eta_min: 0.00001
+t_max:
