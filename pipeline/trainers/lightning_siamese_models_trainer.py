@@ -18,9 +18,11 @@ class SiameseLightningModel(LightningTrainerSiamese):
         self.loss_fn.to(self.device)
 
     def on_validation_start(self):
+        super().on_validation_start()
         self.loss_fn.to(self.device)
 
     def on_test_start(self):
+        super().on_test_start()
         self.loss_fn.to(self.device)
 
     def on_train_epoch_end(self):

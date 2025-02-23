@@ -94,16 +94,6 @@ class LightningTrainerSiamese(pl.LightningModule):
         if not os.path.exists(self.train_results_save_dir):
             os.makedirs(self.train_results_save_dir)
         self.devices_count = len(self.trainer.device_ids)
-
-        self.val_results_save_dir = os.path.join(self.trainer.logger.save_dir, 'results', 'val_results', str(self.global_rank))
-        if not os.path.exists(self.val_results_save_dir):
-            os.makedirs(self.val_results_save_dir)
-
-        self.test_results_save_dir = os.path.join(self.trainer.logger.save_dir, 'results','test_results', str(self.global_rank))
-        if not os.path.exists(self.test_results_save_dir):
-            os.makedirs(self.test_results_save_dir)
-
-        self.devices_count = len(self.trainer.device_ids)
         
     def on_validation_start(self):
         """Start validation."""
@@ -137,6 +127,6 @@ class LightningTrainerSiamese(pl.LightningModule):
         """Calculation and log test results."""
         if batch_idx == (len(self.trainer.datamodule.test_dataset) // batch[0][0].shape[0]) - 1:
             (imgs1, imgs2), labels = batch
-            draw_results(imgs1, imgs2, labels, out['pred'], self.test_results_save_dir, n=3)
+            draw_results(imgs1, imgs2, labels, out['pred'], self.test_results_save_dir, n=7)
         del out['pred']
         self.test_step_outputs.append(out)
